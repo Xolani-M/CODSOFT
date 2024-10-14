@@ -39,8 +39,8 @@ public class GuessingGameEngine {
         else if (guess > targetNumber) return guess + " is too high!";
 
         score += (maxAttempts - attempts + 1);
-        return format("Correct! 🎉 You nailed it in %d attempts! Your score is %d." +
-                "\nDo you want to play again? (yes/no)", attempts, score);
+        return format("Correct! 🎉 You nailed it in %d attempts! Your score is %d.",
+                attempts, score);
     }
 
     public int getScore(){
@@ -49,7 +49,7 @@ public class GuessingGameEngine {
 
     private String gameOverMessage() {
         return format("Game over! You've reached the maximum attempts. " +
-                "The target was %d.\nDo you want to play again? (yes/no)", targetNumber);
+                "The target was %d.", targetNumber);
     }
 
 }
