@@ -25,3 +25,21 @@ A simple number guessing game implemented in Java.
 *   `getScore()`: Returns current score
 *   `randomNumberGenerator(int min, int max)`: Generates random target number
 *   `gameOverMessage()`: Returns game over message
+
+
+## UserInput Class
+
+
+### Features
+
+*   Handles user input for guesses and play again choices
+*   Validates input to ensure integers are entered
+*   Provides error messages for invalid input
+*   Closes scanner to prevent resource leaks
+
+
+### Methods
+
+*   `getUserInput()`: Retrieves and validates user guess
+*   `playAgain()`: Asks user if they want to play again and returns choice
+*   `closeScanner()`: Closes scanner to prevent resource leaks
