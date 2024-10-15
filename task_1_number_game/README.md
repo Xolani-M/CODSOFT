@@ -5,6 +5,24 @@
 A simple number guessing game implemented in Java.
 
 
+## GameConfig Class
+
+
+### Features
+
+*   Represents game configuration with minimum range, maximum range, and maximum attempts
+*   Validates configuration values to ensure game boundaries are non-negative and max attempts are positive
+*   Provides getter methods for configuration values
+
+
+### Methods
+
+*   `GameConfig(int minRange, int maxRange, int maxAttempts)`: Constructs game configuration
+*   `getMinRange()`: Returns minimum range
+*   `getMaxRange()`: Returns maximum range
+*   `getMaxAttempts()`: Returns maximum attempts
+
+
 ## GuessingGameEngine Class
 
 ### Features
