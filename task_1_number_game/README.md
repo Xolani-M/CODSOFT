@@ -45,6 +45,21 @@ A simple number guessing game implemented in Java.
 *   `gameOverMessage()`: Returns game over message
 
 
+## GameState Enum
+
+
+### Features
+
+*   Represents game states: IN_PROGRESS, WON, GAME_OVER
+*   Provides string representation for each game state
+
+
+### Methods
+
+*   `toString()`: Returns string representation of game state
+
+
+
 ## UserInput Class
 
 
