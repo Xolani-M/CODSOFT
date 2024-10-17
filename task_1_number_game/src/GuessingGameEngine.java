@@ -12,9 +12,10 @@ public class GuessingGameEngine {
     private int score;
     private final Random random = new Random();
     private final GameConfig config;
+    private GameState currentState;
 
     public GuessingGameEngine(GameConfig config){
-        validateConfigNotNull(config);
+        validateConfig(config);
         this.config = config;
         this.maxAttempts = config.getMaxAttempts();
     }
@@ -27,6 +28,7 @@ public class GuessingGameEngine {
         targetNumber = randomNumberGenerator(config.getMinRange(), config.getMaxRange());
         attempts = 0;
         score = 0;
+        currentState = GameState.IN_PROGRESS;
     }
 
 
@@ -66,12 +68,25 @@ public class GuessingGameEngine {
      * @return random number
      */
     private int randomNumberGenerator(int min, int max) {
+        validateBoundaries(min,max);
+        return random.nextInt(max - min + 1) + min;
+    }
+
+
+    /**
+     * Validates game boundaries.
+     *
+     * @param min minimum value (inclusive)
+     * @param max maximum value (inclusive)
+     *
+     * @throws IllegalArgumentException for invalid boundaries
+     */
+    private void validateBoundaries(int min, int max) {
         if (min < 0 || max < 0) {
             throw new IllegalArgumentException("Game boundaries must be non-negative");
         } else if (min >= max) {
             throw new IllegalArgumentException("Minimum value must be less than maximum value");
         }
-        return random.nextInt(max - min + 1) + min;
     }
 
 
@@ -84,6 +99,7 @@ public class GuessingGameEngine {
     public String guessNumber(int guess) {
         attempts++;
         if (attempts > maxAttempts) {
+            currentState = GameState.GAME_OVER;
             return gameOverMessage();
         }
 
@@ -93,6 +109,7 @@ public class GuessingGameEngine {
             return guess + " is too high!";
         }
 
+        currentState = GameState.WON;
         score += (maxAttempts - attempts + 1);
         return format("Correct! You nailed it in %d attempts! Your score is %d.",
                 attempts, score);
@@ -126,7 +143,7 @@ public class GuessingGameEngine {
      * @throws NullPointerException     if config is null
      *
      */
-    private void validateConfigNotNull(GameConfig config) {
+    private void validateConfig(GameConfig config) {
         if (config == null) {
             throw new NullPointerException("GameConfig cannot be null");
         }
