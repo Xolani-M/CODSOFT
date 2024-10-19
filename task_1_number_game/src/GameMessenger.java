@@ -12,5 +12,5 @@ public class GameMessenger {
     public static final String CORRECT_GUESS_MSG = "Correct! You nailed it in %d attempts! Your score is %d.";
     public static final String INVALID_INPUT_MSG = "Coin toss didn't go your way. Enter a valid integer.";
     public static final String PLAY_AGAIN_PROMPT = "Do you want to play again? (yes/no): ";
-
+    public static final String CONFIG_NULL_ERROR = "Game config cannot be null.";
 }
