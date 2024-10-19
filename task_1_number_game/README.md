@@ -76,3 +76,9 @@ A simple number guessing game implemented in Java.
 *   `getUserInput()`: Retrieves and validates user guess
 *   `playAgain()`: Asks user if they want to play again and returns choice
 *   `closeScanner()`: Closes scanner to prevent resource leaks
+
+
+### Features
+
+*   Centralizes game-related messages
+*   Provides static constant messages for game events (welcome, new game, guess prompts, etc.)
