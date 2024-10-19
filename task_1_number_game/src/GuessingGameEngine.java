@@ -145,7 +145,7 @@ public class GuessingGameEngine {
      */
     private void validateConfig(GameConfig config) {
         if (config == null) {
-            throw new NullPointerException(GameMessnger.CONFIG_NULL_ERROR);
+            throw new NullPointerException(GameMessenger.CONFIG_NULL_ERROR);
         }
     }
 
