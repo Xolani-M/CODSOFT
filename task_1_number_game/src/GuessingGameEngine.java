@@ -125,6 +125,10 @@ public class GuessingGameEngine {
         return score;
     }
 
+    public boolean isGameOver(){
+        return currentState == GameState.WON || currentState == GameState.GAME_OVER;
+    }
+
 
     /**
      * Gets the game over message.
