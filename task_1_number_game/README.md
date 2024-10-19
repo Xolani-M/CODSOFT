@@ -78,7 +78,15 @@ A simple number guessing game implemented in Java.
 *   `closeScanner()`: Closes scanner to prevent resource leaks
 
 
+## GameMessenger Class
+
+
 ### Features
 
 *   Centralizes game-related messages
 *   Provides static constant messages for game events (welcome, new game, guess prompts, etc.)
+
+
+### Methods
+
+*   None (static constant messages only)
