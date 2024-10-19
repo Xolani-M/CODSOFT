@@ -8,18 +8,18 @@ public class UserInput {
     public int getUserInput(){
 
         while(true){
-            System.out.println("Flip a coin... or just guess the target");
+            System.out.println(GameMessenger.FLIP_COIN_MSG);
             try {
                 return Integer.parseInt(scanner.next());
             } catch (NumberFormatException e){
-                System.out.println("Coin toss didn't go your way. Enter a valid integer.");
+                System.out.println(GameMessenger.INVALID_INPUT_MSG);
             }
         }
 
     }
 
     public boolean playAgain(){
-        System.out.println("Do you want to play again? (yes/no): ");
+        System.out.println(GameMessenger.PLAY_AGAIN_PROMPT);
 
         String response = scanner.next();
         return response.equalsIgnoreCase("yes");
