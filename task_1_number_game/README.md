@@ -5,24 +5,6 @@
 A simple number guessing game implemented in Java.
 
 
-## GameConfig Class
-
-
-### Features
-
-*   Represents game configuration with minimum range, maximum range, and maximum attempts
-*   Validates configuration values to ensure game boundaries are non-negative and max attempts are positive
-*   Provides getter methods for configuration values
-
-
-### Methods
-
-*   `GameConfig(int minRange, int maxRange, int maxAttempts)`: Constructs game configuration
-*   `getMinRange()`: Returns minimum range
-*   `getMaxRange()`: Returns maximum range
-*   `getMaxAttempts()`: Returns maximum attempts
-
-
 ## GuessingGameEngine Class
 
 ### Features
@@ -43,50 +25,3 @@ A simple number guessing game implemented in Java.
 *   `getScore()`: Returns current score
 *   `randomNumberGenerator(int min, int max)`: Generates random target number
 *   `gameOverMessage()`: Returns game over message
-
-
-## GameState Enum
-
-
-### Features
-
-*   Represents game states: IN_PROGRESS, WON, GAME_OVER
-*   Provides string representation for each game state
-
-
-### Methods
-
-*   `toString()`: Returns string representation of game state
-
-
-
-## UserInput Class
-
-
-### Features
-
-*   Handles user input for guesses and play again choices
-*   Validates input to ensure integers are entered
-*   Provides error messages for invalid input
-*   Closes scanner to prevent resource leaks
-
-
-### Methods
-
-*   `getUserInput()`: Retrieves and validates user guess
-*   `playAgain()`: Asks user if they want to play again and returns choice
-*   `closeScanner()`: Closes scanner to prevent resource leaks
-
-
-## GameMessenger Class
-
-
-### Features
-
-*   Centralizes game-related messages
-*   Provides static constant messages for game events (welcome, new game, guess prompts, etc.)
-
-
-### Methods
-
-*   None (static constant messages only)
