@@ -24,4 +24,5 @@ A simple number guessing game implemented in Java.
 *   `guessNumber(int guess)`: Processes user guess
 *   `getScore()`: Returns current score
 *   `randomNumberGenerator(int min, int max)`: Generates random target number
-*   `gameOverMessage()`: Returns game over message
+*   `gameOverMessage()`: Returns game over message 
+*   `isGameOver()` | Checks if the game has ended (won or game-over)
