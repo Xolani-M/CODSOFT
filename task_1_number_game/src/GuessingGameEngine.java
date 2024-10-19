@@ -33,10 +33,12 @@ public class GuessingGameEngine {
 
 
     /**
-     * Starts a new game and prints the game message.
+     * Prints the welcome msg
+     * Starts a new game and prints the game msg.
      */
     public void startNewGame(){
-        System.out.printf("New Game: Guess a number between %d and %d%n", config.getMinRange(), config.getMaxRange());
+        System.out.println(GameMessenger.WELCOME_MSG);
+        System.out.printf(GameMessenger.NEW_GAME_MSG, config.getMinRange(), config.getMaxRange());
     }
 
 
@@ -82,10 +84,8 @@ public class GuessingGameEngine {
      * @throws IllegalArgumentException for invalid boundaries
      */
     private void validateBoundaries(int min, int max) {
-        if (min < 0 || max < 0) {
-            throw new IllegalArgumentException("Game boundaries must be non-negative");
-        } else if (min >= max) {
-            throw new IllegalArgumentException("Minimum value must be less than maximum value");
+        if (min < 0 || max < 0 || min >= max) {
+            throw new IllegalArgumentException(GameMessenger.INVALID_BOUNDARIES_ERROR);
         }
     }
 
@@ -104,14 +104,14 @@ public class GuessingGameEngine {
         }
 
         if (guess < targetNumber) {
-            return guess + " is too low!";
+            return guess + GameMessenger.GUESS_LOW_MSG;
         } else if (guess > targetNumber) {
-            return guess + " is too high!";
+            return guess + GameMessenger.GUESS_HIGH_MSG;
         }
 
         currentState = GameState.WON;
         score += (maxAttempts - attempts + 1);
-        return format("Correct! You nailed it in %d attempts! Your score is %d.",
+        return format(GameMessenger.CORRECT_GUESS_MSG,
                 attempts, score);
     }
 
@@ -132,7 +132,7 @@ public class GuessingGameEngine {
      * @return game over message
      */
     private String gameOverMessage() {
-        return format("Game over! You've reached the maximum attempts. The target was %d.", targetNumber);
+        return format(GameMessenger.GAME_OVER_MSG, targetNumber);
     }
 
 
@@ -145,7 +145,7 @@ public class GuessingGameEngine {
      */
     private void validateConfig(GameConfig config) {
         if (config == null) {
-            throw new NullPointerException("GameConfig cannot be null");
+            throw new NullPointerException(GameMessnger.CONFIG_NULL_ERROR);
         }
     }
 
