@@ -29,15 +29,15 @@ public class GameConfig {
      * @param maxAttempts maximum attempts
      * @throws IllegalArgumentException if invalid values are provided
      */
-    private void validateConfig(int minRange, int maxRange, int maxAttempts) {
+    private void validateGameBounds(int minRange, int maxRange, int maxAttempts) {
         if (minRange < 0 || maxRange < 0) {
-            throw new IllegalArgumentException("Game boundaries must be non-negative");
+            throw new IllegalArgumentException(GameMessenger.NON_NEGATIVE_BOUNDS_ERROR);
         }
         if (minRange >= maxRange) {
-            throw new IllegalArgumentException("Min range must be less than max range");
+            throw new IllegalArgumentException(GameMessenger.INVALID_RANGE_ORDER_ERROR);
         }
         if (maxAttempts <= 0) {
-            throw new IllegalArgumentException("Max attempts must be positive");
+            throw new IllegalArgumentException(GameMessenger.POSITIVE_ATTEMPTS_ERROR);
         }
     }
 
