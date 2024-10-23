@@ -15,7 +15,10 @@ public class GuessingGameEngine {
     private GameState currentState;
 
     public GuessingGameEngine(GameConfig config){
-        validateConfig(config);
+        if (config == null) {
+            throw new NullPointerException(GameMessenger.CONFIG_NULL_ERROR);
+        }
+
         this.config = config;
         this.maxAttempts = config.getMaxAttempts();
     }
@@ -68,7 +71,7 @@ public class GuessingGameEngine {
      * @return random number
      */
     private int randomNumberGenerator() {
-        return random.nextInt(config.minRange - config.maxRange + 1) + comfig.minRange;
+        return random.nextInt(config.getMinRange() - config.getMaxRange() + 1) + config.getMinRange();
     }
 
 
@@ -121,18 +124,5 @@ public class GuessingGameEngine {
         return format(GameMessenger.GAME_OVER_MSG, targetNumber);
     }
 
-
-    /**
-     * Validates the GameConfig object.
-     *
-     * @param config GameConfig object
-     * @throws NullPointerException     if config is null
-     *
-     */
-    private void validateConfig(GameConfig config) {
-        if (config == null) {
-            throw new NullPointerException(GameMessenger.CONFIG_NULL_ERROR);
-        }
-    }
 
 }
