@@ -65,28 +65,13 @@ public class GuessingGameEngine {
     /**
      * Generates a random number between min and max.
      *
-     * @param min minimum value
-     * @param max maximum value
+     * @param minRange minimum value
+     * @param maxRange maximum value
      * @return random number
      */
-    private int randomNumberGenerator(int min, int max) {
-        validateBoundaries(min,max);
-        return random.nextInt(max - min + 1) + min;
-    }
-
-
-    /**
-     * Validates game boundaries.
-     *
-     * @param min minimum value (inclusive)
-     * @param max maximum value (inclusive)
-     *
-     * @throws IllegalArgumentException for invalid boundaries
-     */
-    private void validateBoundaries(int min, int max) {
-        if (min < 0 || max < 0 || min >= max) {
-            throw new IllegalArgumentException(GameMessenger.INVALID_BOUNDARIES_ERROR);
-        }
+    private int randomNumberGenerator(int minRange, int maxRange) {
+        config.validateGameBounds(minRange,maxRange);
+        return random.nextInt(minRange - maxRange + 1) + minRange;
     }
 
 
