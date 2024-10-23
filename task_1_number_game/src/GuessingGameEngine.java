@@ -25,7 +25,7 @@ public class GuessingGameEngine {
      * Launches a new game.
      */
     public void launchGame() {
-        targetNumber = randomNumberGenerator(config.getMinRange(), config.getMaxRange());
+        targetNumber = randomNumberGenerator();
         attempts = 0;
         score = 0;
         currentState = GameState.IN_PROGRESS;
@@ -65,13 +65,10 @@ public class GuessingGameEngine {
     /**
      * Generates a random number between min and max.
      *
-     * @param minRange minimum value
-     * @param maxRange maximum value
      * @return random number
      */
-    private int randomNumberGenerator(int minRange, int maxRange) {
-        config.validateGameBounds(minRange,maxRange);
-        return random.nextInt(minRange - maxRange + 1) + minRange;
+    private int randomNumberGenerator() {
+        return random.nextInt(config.minRange - config.maxRange + 1) + comfig.minRange;
     }
 
 
