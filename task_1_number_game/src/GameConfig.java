@@ -15,7 +15,7 @@ public class GameConfig {
      * @throws IllegalArgumentException if invalid values are provided
      */
     public GameConfig(int minRange, int maxRange, int maxAttempts) {
-        validateConfig(minRange, maxRange, maxAttempts);
+        validateGameBounds(minRange, maxRange, maxAttempts);
         this.minRange = minRange;
         this.maxRange = maxRange;
         this.maxAttempts = maxAttempts;
